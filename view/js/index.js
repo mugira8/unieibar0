@@ -1,10 +1,9 @@
-$(window).on("load", function() {
+function getAlumnos(){
     let url = "controller/cGetAlumnos.php";
     fetch(url, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     }).then(res => res.json()).then(result => {
-        console.log(result);
         let i = 0;
         let table = "";
         while (result.list[i] != null)
@@ -15,14 +14,24 @@ $(window).on("load", function() {
                     "<td>" + result.list[i].apellido + "</td>" +
                     "<td>" + result.list[i].email + "</td>" +
                     "<td>" + result.list[i].edad + "</td>" +
-                    "<td> <button value="+ result.list[i].id +" type='button' class='btn btn-primary'>Editar</button>" +
-                    "<button value="+ result.list[i].id +" type='button' class='btn btn-danger'>Borrar</button> </td>" +
+                    "<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button>" +
+                    "<button onclick=deleteAlumno("+ result.list[i].id +") type='button' class='btn btn-danger'>Borrar</button> </td>" +
                     "</tr>"
             i++;
         }
         $("#tbody").html(table);
     })
-});
+}
+
+function deleteAlumno(id){
+    console.log(id);
+}
+
+function updateAlumno(id){
+    console.log(id);
+}
+
+$(window).on("load", getAlumnos());
 
 $("#buscar").on("click", function() {
     let apellido = $("#buscarValue").val();
@@ -33,7 +42,6 @@ $("#buscar").on("click", function() {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
     }).then (res => res.json()).then(result => {
-        console.log(result);
         let i = 0;
         let table = "";
         while (result.list[i] != null)
@@ -44,11 +52,32 @@ $("#buscar").on("click", function() {
                     "<td>" + result.list[i].apellido + "</td>" +
                     "<td>" + result.list[i].email + "</td>" +
                     "<td>" + result.list[i].edad + "</td>" +
-                    "<td> <button value="+ result.list[i].id +" type='button' class='btn btn-primary'>Editar</button>" +
-                    "<button value="+ result.list[i].id +" type='button' class='btn btn-danger'>Borrar</button> </td>" +
+                    "<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button>" +
+                    "<button onclick=deleteAlumno("+ result.list[i].id +") type='button' class='btn btn-danger'>Borrar</button> </td>" +
                     "</tr>"
             i++;
         }
         $("#tbody").html(table);
+    })
+})
+
+$("#crearModal").on("click", function() {
+    $("#crearAlumnoModal").modal("show");
+})
+
+$("#botonCrearAlumno").on("click", function() {
+    let nombre = $("#insertNombre").val();
+    let apellido = $("#insertApellido").val();
+    let email = $("#insertEmail").val();
+    let edad = $("#insertEdad").val();
+    let url = "controller/cCrearAlumno.php";
+    let data = {'nombre': nombre, 'apellido': apellido, 'email': email, 'edad': edad};
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }).then (res => res.json()).then(result => {
+        if (result.error == "Success")
+            getAlumnos();
     })
 })

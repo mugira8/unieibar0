@@ -76,9 +76,48 @@ public function listAlumnos()
 		return $list;
 	}
 
+	public function createAlumno()
+	{
+		$this->OpenConnect();
+
+		$nombre = $this->nombre;
+		$apellido = $this->apellido;
+		$email = $this->email;
+		$edad = $this->edad;
+
+		$sql= "INSERT INTO alumnos (nombre, apellido, email, edad) 
+		VALUES ('$nombre', '$apellido', '$email', '$edad')";
+
+		$this -> link -> query($sql);
+        
+		if ($this -> link -> affected_rows == 1){
+			return "Success";
+		}
+		else {
+			return "Error updating ". $sql ."   ". $this->link->error;
+		}
+		$this->CloseConnect();
+	}
+
 	public function updateAlumno(){
 
 		$this->OpenConnect();
+
+		$this->CloseConnect();
+	}
+
+	public function deleteAlumno(){
+		
+		$this->OpenConnect();
+		$id = $this->getId();
+        $sql = "DELETE * FROM alumnos WHERE id = $id";
+
+        if($this -> link -> query($sql)) {
+            return " Record deleted successfully";
+        }
+        else {
+            return "Error updating ". $sql ."   ". $this->link->error;
+        }
 
 		$this->CloseConnect();
 	}
