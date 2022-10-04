@@ -1,3 +1,4 @@
+//Lo hago en una funcion aparte porque se usa varias veces
 function getAlumnos(){
     let url = "controller/cGetAlumnos.php";
     fetch(url, {
@@ -25,11 +26,29 @@ function getAlumnos(){
 
 function deleteAlumno(id){
     console.log(id);
+
+    //Hacer la funcion delete, la ID ya la manda
 }
 
 function updateAlumno(id){
-    console.log(id);
+    let url = "controller/cFindAlumnoById.php";
+    let data = {'id': id};
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(result => {
+        $("#editarAlumnoModal").modal("show");
+        $("#editNombre").val(result.nombre);
+        $("#editApellido").val(result.apellido);
+        $("#editEmail").val(result.email);
+        $("#editEdad").val(result.edad);
+    })
 }
+
+$("#botonEditarAlumno").on("click", function() {
+    //Guardar los cambios en el formulario de editar alumno
+})
 
 $(window).on("load", getAlumnos());
 

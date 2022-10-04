@@ -89,7 +89,7 @@ public function listAlumnos()
 		VALUES ('$nombre', '$apellido', '$email', '$edad')";
 
 		$this -> link -> query($sql);
-        
+		
 		if ($this -> link -> affected_rows == 1){
 			return "Success";
 		}
@@ -97,6 +97,30 @@ public function listAlumnos()
 			return "Error updating ". $sql ."   ". $this->link->error;
 		}
 		$this->CloseConnect();
+	}
+
+	public function findAlumnoById()
+	{
+		$this->OpenConnect();
+		
+		$id = $this->id;
+
+		$sql = "SELECT * FROM alumnos WHERE id = '$id'";
+		$result = $this->link->query($sql);
+		
+		if ($row = $result->fetch_array(MYSQLI_ASSOC))
+		{
+			$alumno = new alumnosModel();
+
+			$alumno->id = $row['id'];
+			$alumno->nombre=$row['nombre'];
+			$alumno->apellido=$row['apellido'];
+			$alumno->email=$row['email'];
+			$alumno->edad=$row["edad"];
+		}
+		mysqli_free_result($result);
+		$this->CloseConnect();
+		return get_object_vars($alumno);
 	}
 
 	public function updateAlumno(){
@@ -110,14 +134,14 @@ public function listAlumnos()
 		
 		$this->OpenConnect();
 		$id = $this->getId();
-        $sql = "DELETE * FROM alumnos WHERE id = $id";
+		$sql = "DELETE * FROM alumnos WHERE id = $id";
 
-        if($this -> link -> query($sql)) {
-            return " Record deleted successfully";
-        }
-        else {
-            return "Error updating ". $sql ."   ". $this->link->error;
-        }
+		if($this -> link -> query($sql)) {
+			return " Record deleted successfully";
+		}
+		else {
+			return "Error updating ". $sql ."   ". $this->link->error;
+		}
 
 		$this->CloseConnect();
 	}
