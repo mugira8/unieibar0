@@ -39,6 +39,7 @@ function updateAlumno(id){
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(result => {
         $("#editarAlumnoModal").modal("show");
+        $("#editId").val(result.id);
         $("#editNombre").val(result.nombre);
         $("#editApellido").val(result.apellido);
         $("#editEmail").val(result.email);
@@ -47,6 +48,21 @@ function updateAlumno(id){
 }
 
 $("#botonEditarAlumno").on("click", function() {
+    let id = $("#editId").val();
+    let nombre = $("#editNombre").val();
+    let apellido = $("#editApellido").val();
+    let email = $("#editEmail").val();
+    let edad = $("#editEdad").val();
+    let url = "controller/cUpdateAlumno.php";
+    let data = {'id':id, 'nombre': nombre, 'apellido': apellido, 'email': email, 'edad': edad};
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }).then (res => res.json()).then(result => {
+        if (result.error == "Success")
+            getAlumnos();
+    })
     //Guardar los cambios en el formulario de editar alumno
 })
 
