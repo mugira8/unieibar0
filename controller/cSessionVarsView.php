@@ -1,10 +1,8 @@
 <?php
 require_once '../model/usuariosModel.php';
-require_once '../model/pacientesModel.php';
 
 $response=array();
 $usuario= new usuariosModel();
-$paciente = new pacientesModel();
 
 session_start();
 

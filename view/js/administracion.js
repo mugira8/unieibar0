@@ -1,4 +1,3 @@
-//Lo hago en una funcion aparte porque se usa varias veces
 $(document).ready(sessionVarsView);
 function sessionVarsView() {
     var url = "controller/cSessionVarsView.php";
@@ -11,7 +10,7 @@ function sessionVarsView() {
     });
 }
 
-
+$(window).on("load", getAlumnos());
 function getAlumnos(){
     let url = "controller/cGetAlumnos.php";
     fetch(url, {
@@ -47,10 +46,7 @@ function deleteAlumno(id){
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(result => {
         console.log(result)
-    
     })
-
-    //Hacer la funcion delete, la ID ya la manda
 }
 
 function updateAlumno(id){
@@ -86,10 +82,7 @@ $("#botonEditarAlumno").on("click", function() {
         if (result.error == "Success")
             getAlumnos();
     })
-    //Guardar los cambios en el formulario de editar alumno
 })
-
-$(window).on("load", getAlumnos());
 
 $("#buscar").on("click", function() {
     let apellido = $("#buscarValue").val();

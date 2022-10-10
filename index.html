@@ -13,13 +13,8 @@
 <body>
   <a href="./administracion.html">administracion</a>
   <div class="container">
-    <button id="crearModal" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
-      data-bs-target="#crearAlumnoModal">Crear
-      Alumno</button>
-    <a href="./index.html">volver</a>
-
-
-    <hr>
+    <button id="loginModalButton" type="button" class="btn btn-primary mt-3">Login</button>
+    <hr>                                                                            
     <div>
       <div>
         <input id="buscarValue" type="text">
@@ -41,7 +36,7 @@
       </table>
     </div>
   </div>
-  
+
   <!--Login alumno-->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
     <div class="modal-dialog">
@@ -54,11 +49,11 @@
             <div class="row g-3 justify-content-center">
               <div>
                 <label class="form-label">Email</label>
-                <input id="loginEmail" type="text" class="form-control" placeholder="" value="">
+                <input id="loginEmail" type="text" class="form-control">
               </div>
               <div>
                 <label class="form-label">Contraseña</label>
-                <input id="loginContrasena" type="text" class="form-control" placeholder="" value="">
+                <input id="loginContrasena" type="password" class="form-control">
               </div>
               <p id="errorLogin" class="text-primary"></p>
               <!--Fin del formulario-->
