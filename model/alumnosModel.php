@@ -127,6 +127,25 @@ public function listAlumnos()
 
 		$this->OpenConnect();
 
+		$id = $this->id;
+		$nombre = $this->nombre;
+		$apellido = $this->apellido;
+		$email = $this->email;
+		$edad = $this->edad;
+
+		$sql= "UPDATE alumnos
+		SET nombre='$nombre', apellido='$apellido', email='$email', edad='$edad'
+		WHERE id='$this->id'";
+
+		$this -> link -> query($sql);
+		
+		if ($this -> link -> affected_rows == 1){
+			return "Success";
+		}
+		else {
+			return "Error updating ". $sql ."   ". $this->link->error;
+		}
+
 		$this->CloseConnect();
 	}
 
