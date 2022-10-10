@@ -23,7 +23,7 @@ function getAlumnos(){
         while (result.list[i] != null)
         {
             table += "<tr>" +
-                    "<th scope='row'>" + i + "</th>" + 
+                    "<th scope='row'>" + (parseInt(i)+1) + "</th>" + 
                     "<td>" + result.list[i].nombre + "</td>" +
                     "<td>" + result.list[i].apellido + "</td>" +
                     "<td>" + result.list[i].email + "</td>" +
@@ -70,7 +70,7 @@ function updateAlumno(id){
     })
 }
 
-$("#botonEditarAlumno").on("click", function() {
+function editarAlumno() {
     let id = $("#editId").val();
     let nombre = $("#editNombre").val();
     let apellido = $("#editApellido").val();
@@ -87,7 +87,7 @@ $("#botonEditarAlumno").on("click", function() {
             getAlumnos();
     })
     //Guardar los cambios en el formulario de editar alumno
-})
+}
 
 $(window).on("load", getAlumnos());
 
@@ -136,9 +136,7 @@ function insertarAlumno() {
         headers: { 'Content-Type': 'application/json' }
     }).then (res => res.json()).then(result => {
         if (result.error == "Success")
-            //location.reload();
             getAlumnos();
     })
 }
-//$("#botonCrearAlumno").on("click", )
 
