@@ -1,4 +1,17 @@
 //Lo hago en una funcion aparte porque se usa varias veces
+$(document).ready(sessionVarsView);
+function sessionVarsView() {
+    var url = "controller/cSessionVarsView.php";
+    fetch(url, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(result => {
+        console.log('session result', result);
+        console.log(window.location.href);
+    });
+}
+
+
 function getAlumnos(){
     let url = "controller/cGetAlumnos.php";
     fetch(url, {

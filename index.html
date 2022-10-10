@@ -13,7 +13,64 @@
 <body>
   <a href="./administracion.html">administracion</a>
   <div class="container">
-    
+    <button id="crearModal" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+      data-bs-target="#crearAlumnoModal">Crear
+      Alumno</button>
+    <a href="./index.html">volver</a>
+
+
+    <hr>
+    <div>
+      <div>
+        <input id="buscarValue" type="text">
+        <button id="buscar" type="button" class="btn btn-primary">Buscar</button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Horas</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Fin</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!--Login alumno-->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary" id="exampleModalLabel">LOGIN</h5>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row g-3 justify-content-center">
+              <div>
+                <label class="form-label">Email</label>
+                <input id="loginEmail" type="text" class="form-control" placeholder="" value="">
+              </div>
+              <div>
+                <label class="form-label">Contraseña</label>
+                <input id="loginContrasena" type="text" class="form-control" placeholder="" value="">
+              </div>
+              <p id="errorLogin" class="text-primary"></p>
+              <!--Fin del formulario-->
+              <div class="modal-footer">
+                <button id="botonLogin" data-bs-dismiss="modal" class="col-3 btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   <!--SCRIPTS-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
