@@ -22,7 +22,7 @@ function getAlumnos(){
         while (result.list[i] != null)
         {
             table += "<tr>" +
-                    "<th scope='row'>" + result.list[i].id + "</th>" + 
+                    "<th scope='row'>" + i + "</th>" + 
                     "<td>" + result.list[i].nombre + "</td>" +
                     "<td>" + result.list[i].apellido + "</td>" +
                     "<td>" + result.list[i].email + "</td>" +
@@ -45,7 +45,8 @@ function deleteAlumno(id){
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(result => {
-        console.log(result)
+        console.log(result);
+        getAlumnos();
     })
 }
 
@@ -63,6 +64,8 @@ function updateAlumno(id){
         $("#editApellido").val(result.apellido);
         $("#editEmail").val(result.email);
         $("#editEdad").val(result.edad);
+
+        getAlumnos();
     })
 }
 
@@ -116,7 +119,7 @@ $("#crearModal").on("click", function() {
     $("#crearAlumnoModal").modal("show");
 })
 
-$("#botonCrearAlumno").on("click", function() {
+function insertarAlumno() {
     let nombre = $("#insertNombre").val();
     let apellido = $("#insertApellido").val();
     let email = $("#insertEmail").val();
@@ -129,6 +132,9 @@ $("#botonCrearAlumno").on("click", function() {
         headers: { 'Content-Type': 'application/json' }
     }).then (res => res.json()).then(result => {
         if (result.error == "Success")
+            //location.reload();
             getAlumnos();
     })
-})
+}
+//$("#botonCrearAlumno").on("click", )
+
