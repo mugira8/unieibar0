@@ -153,7 +153,7 @@ public function listAlumnos()
 		
 		$this->OpenConnect();
 		$id = $this->getId();
-		$sql = "DELETE * FROM alumnos WHERE id = $id";
+		$sql = "DELETE FROM alumnos WHERE id = $id";
 
 		if($this -> link -> query($sql)) {
 			return " Record deleted successfully";

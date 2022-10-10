@@ -39,6 +39,16 @@ function getAlumnos(){
 
 function deleteAlumno(id){
     console.log(id);
+    let url = "controller/cDeleteAlumno.php";
+    let data = {'id': id};
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(result => {
+        console.log(result)
+    
+    })
 
     //Hacer la funcion delete, la ID ya la manda
 }
