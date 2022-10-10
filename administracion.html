@@ -49,28 +49,28 @@
           <h5 class="modal-title text-primary" id="exampleModalLabel">CREAR ALUMNO</h5>
         </div>
         <div class="modal-body">
-          <form>
+          <form onsubmit="insertarAlumno()" method="post">
             <div class="row g-3 justify-content-center">
               <div>
                 <label class="form-label">Nombre</label>
-                <input id="insertNombre" type="text" class="form-control" placeholder="" value="">
+                <input id="insertNombre" type="text" class="form-control" placeholder="" value="" required>
               </div>
               <div>
                 <label class="form-label">Apellido</label>
-                <input id="insertApellido" type="text" class="form-control" placeholder="" value="">
+                <input id="insertApellido" type="text" class="form-control" placeholder="" value="" required>
               </div>
               <div>
                 <label class="form-label">Email</label>
-                <input id="insertEmail" type="text" class="form-control" placeholder="" value="">
+                <input id="insertEmail" type="email" class="form-control" placeholder="" value="" required>
               </div>
               <div>
                 <label class="form-label">Edad</label>
-                <input id="insertEdad" type="text" class="form-control" placeholder="" value="">
+                <input id="insertEdad" type="number" class="form-control" placeholder="" value="" required>
               </div>
               <p id="errorLogin" class="text-danger"></p>
               <!--Fin del formulario-->
               <div class="modal-footer">
-                <button id="botonCrearAlumno" data-bs-dismiss="modal" class="col-3 btn btn-primary">Enviar</button>
+                <input id="botonCrearAlumno" data-bs-dismiss="modal" class="col-3 btn btn-primary" value="Submit" type="submit">Enviar</input>
               </div>
             </div>
           </form>
@@ -93,19 +93,19 @@
               <label id="editId"></label>
               <div>
                 <label class="form-label">Nombre</label>
-                <input id="editNombre" type="text" class="form-control">
+                <input id="editNombre" type="text" class="form-control" required>
               </div>
               <div>
                 <label class="form-label">Apellido</label>
-                <input id="editApellido" type="text" class="form-control">
+                <input id="editApellido" type="text" class="form-control" required>
               </div>
               <div>
                 <label class="form-label">Email</label>
-                <input id="editEmail" type="text" class="form-control">
+                <input id="editEmail" type="text" class="form-control" required>
               </div>
               <div>
                 <label class="form-label">Edad</label>
-                <input id="editEdad" type="text" class="form-control">
+                <input id="editEdad" type="text" class="form-control" required>
               </div>
               <p id="errorLogin" class="text-danger"></p>
               <!--Fin del formulario-->
