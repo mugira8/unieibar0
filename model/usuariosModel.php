@@ -26,16 +26,17 @@ class usuariosModel extends usuariosClass {
     public function findUser(){
         $this->OpenConnect();
 
-        $correo=$this->correo;
+        $email=$this->email;
         $contrasena=$this->contrasena;
 
-        $sql = "SELECT * FROM usuarios WHERE correo='$correo' AND contrasena='$contrasena'";
+        $sql = "SELECT * FROM usuarios WHERE email='$email' AND contrasena='$contrasena'";
 
         $result = $this->link->query($sql);
 
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         {
-            $this->id=$row['cod_usuario'];
+			$this->id = $row['id'];
+            $this->admin = $row['admin'];
             $usuarioExists = true;
         }
         mysqli_free_result($result);

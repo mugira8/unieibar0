@@ -12,9 +12,12 @@ if (isset($_SESSION['usuario'])){
 } else if (!isset($_SESSION['usuario'])){  
     $response['error']="No estas loggeado";
 }
-
+if(isset($_SESSION['admin']))
+    $admin=$_SESSION['admin'];
+else
+    $admin = 0;
 $response['usuario']= $usuario;
-
+$response['admin'] = $admin;
 echo json_encode($response);
 
 unset($response);

@@ -12,13 +12,11 @@
 
 <body>
   <div class="container">
-    <button id="crearModal" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
-      data-bs-target="#crearAlumnoModal">Crear
-      Alumno</button>
-      <a href="./index.html">volver</a>
-
+    <div class="d-flex flex-row">
+      <button id="crearModal" type="button" class="btn btn-primary m-3">Crear Alumno</button>
+      <button id="adminIndexButton" class="btn btn-danger m-3">Volver</button>
+    </div>
     <hr>
-
     <div>
       <input id="buscarValue" type="text">
       <button id="buscar" type="button" class="btn btn-primary">Buscar</button>
@@ -49,7 +47,7 @@
           <h5 class="modal-title text-primary" id="exampleModalLabel">CREAR ALUMNO</h5>
         </div>
         <div class="modal-body">
-          <form onsubmit="insertarAlumno()" method="post">
+          <form>
             <div class="row g-3 justify-content-center">
               <div>
                 <label class="form-label">Nombre</label>
@@ -128,6 +126,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="./view/js/administracion.js"></script>
+  <script src="./view/js/general.js"></script>
 </body>
 
 </html>
