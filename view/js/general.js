@@ -6,10 +6,15 @@ function sessionVarsView() {
 		headers: { 'Content-Type': 'application/json' }
 	}).then(res => res.json()).then(result => {
 		console.log('session result', result);
-		if (result.error == "no error" && result.admin == 1) {
+		if (result.error == "no error") {
 			$('#loginModalButton').css("display", "none");
 			$("#logoutButton").css("display", "block");
-			$("#adminButton").css("display", "block");
+			$("#registroModalButton").css("display", "none");
+			$("#cursosButton").css("display", "block");
+			if(result.admin == 1)
+			{
+				$("#adminButton").css("display", "block");
+			}
 		}
 		if (result.admin != 1 && !window.location.href.includes("index")) {
 			window.location.href = "index.html";
@@ -27,6 +32,9 @@ $("#logoutButton").on("click", function () {
 			$('#loginModalButton').css("display", "block");
 			$("#logoutButton").css("display", "none");
 			$("#adminButton").css("display", "none");
+			$("#tabla").css("display", "none");
+			$("#registroModalButton").css("display", "block");
+			$("#cursosButton").css("display", "none");
 			window.location.href = "index.html";
 		}
 	})

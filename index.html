@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./view/css/general.css">
 	<title>Home</title>
@@ -12,64 +14,235 @@
 
 <body>
 	<div class="container">
-		<div class="d-flex flex-row">
-			<button id="loginModalButton" type="button" class="btn btn-primary m-3 justify-content-end">Login</button>
-			<button id="adminButton" type="button" class="btn btn-primary m-3 bnone">Administracion</button>
-			<button id="logoutButton" type="button" class="btn btn-danger m-3 align-content-end bnone">Logout</button>
-
-		</div>
-		<hr>                                                                            
-		<div>
-			<div>
-				<input id="buscarValue" type="text">
-				<button id="buscar" type="button" class="btn btn-primary">Buscar</button>
+		<!--NAV-->
+		<div class="d-flex">
+			<div id="logo" class="col-2">
+				<a href="index.html">
+					<img src="./view/images/logo.jpg" alt="" width="150" height="60">
+				</a>
 			</div>
-
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Nombre</th>
-						<th scope="col">Horas</th>
-						<th scope="col">Fecha Inicio</th>
-						<th scope="col">Fecha Fin</th>
-					</tr>
-				</thead>
-				<tbody id="tbody">
-				</tbody>
-			</table>
-		</div>
-	</div>
-
-	<!--Login alumno-->
-	<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title text-primary" id="exampleModalLabel">LOGIN</h5>
+			<div class="col-9 d-flex flex-row">
+				<a id="adminButton" href="./administracion.html" class="dnone m-4">Administracion</a>
+				<a id="cursosButton" href="./cursos.html" class="dnone m-4">Cursos</a>
+			</div>
+			<div class="col-1">
+				<div class="d-flex flex-row-reverse">
+					<button id="loginModalButton" type="button" class="btn btn-primary m-3">Login</button>
+					<button id="registroModalButton" type="button" class="btn btn-danger m-3">Registrar</button>
+					<button id="logoutButton" type="button"
+						class="btn btn-danger m-3 align-content-end dnone">Logout</button>
 				</div>
-				<div class="modal-body">
-					<form>
-						<div class="row g-3 justify-content-center">
-							<div>
-								<label class="form-label">Email</label>
-								<input id="loginEmail" type="text" class="form-control">
-							</div>
-							<div>
-								<label class="form-label">Contraseña</label>
-								<input id="loginContrasena" type="password" class="form-control">
-							</div>
-							<p id="errorLogin" class="text-primary"></p>
-							<!--Fin del formulario-->
-							<div class="modal-footer">
-								<button id="loginButton">Enviar</button>
+			</div>
+		</div>
+		<!--NAV-->
+		<hr>
+		<div id="inicio">
+			<!--CONTENT-->
+			<!--PARALLAX-->
+			<div class="parallax">
+				<div class="paraCont banca p-3">
+					<h1>Lanbide Heziketako ikastetxea</h1>
+				</div>
+			</div>
+			<!--PARALLAX-->
+			<div class="container p-3">
+				<div class="nuevosModelos text-center p-3">
+					<h1>NOTICIAS</h1>
+				</div>
+				<div class="row row-cols-md-3 g-4 text-center">
+
+					<div class="col">
+
+						<div class="card h-100">
+							<img src="https://www.uni.eus/wp-content/uploads/2022/09/ErasmusBilera2022-09-15a2-scaled-350x210.jpg"
+								class="card-img-top ">
+							<div class="card-body">
+								<h5 class="card-title">ERASMUS</h5>
 							</div>
 						</div>
-					</form>
+
+					</div>
+					<div class="col">
+						<div class="card h-100">
+							<img src="https://www.uni.eus/wp-content/uploads/2022/06/GlobalTrainingVertical-350x210.png"
+								class="card-img-top">
+							<div class="card-body">
+								<h5 class="card-title">GLOBAL TRAINING</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card h-100">
+							<img src="https://www.uni.eus/wp-content/uploads/2022/06/UrteAmaiera_Aurkezleak2-350x210.jpg"
+								class="card-img-top">
+							<div class="card-body">
+								<h5 class="card-title">DIPLOMAS</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3 my-4">
+					<div class="row g-0">
+						<div class="col-md-3"
+							style="background-image: url('https://static3.elcorreo.com/www/pre2017/multimedia/vizcaya/prensa/noticias/201102/04/fotos/7749511.jpg'); background-position:left; background-size: contain; background-repeat: no-repeat;">
+						</div>
+						<div class="col-md-6">
+							<div class="card-body">
+								<h5 class="card-title">International Students <span class="badge bg-warning ">New</span>
+								</h5>
+								<p class="card-text"><b>UNI EIBAR ERMUA</b> </p>
+								<p class="card-text">We offer stages for exchange students in the frame of Erasmus+ and
+									EMEU projects.</p>
+							</div>
+						</div>
+						<div class="col-md-3"
+							style="background-image: url('https://www.uni.eus/wp-content/uploads/2021/05/UEB_0809-540x440.jpg'); background-position:right; background-size: contain; background-repeat: no-repeat;">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--CONTENT-->
+		</div>
+
+		<!--Login alumno-->
+		<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-primary" id="exampleModalLabel">LOGIN</h5>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="row g-3 justify-content-center">
+								<div>
+									<label class="form-label">Email</label>
+									<input id="loginEmail" type="text" class="form-control">
+								</div>
+								<div>
+									<label class="form-label">Contraseña</label>
+									<input id="loginContrasena" type="password" class="form-control">
+								</div>
+								<p id="errorLogin" class="text-primary"></p>
+								<!--Fin del formulario-->
+								<div class="modal-footer">
+									<button id="loginButton" type="button" class="btn btn-primary">Enviar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Registro alumno-->
+		<div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-primary" id="exampleModalLabel">REGISTRO</h5>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="row g-3 justify-content-center">
+								<div>
+									<label class="form-label">Email</label>
+									<input id="loginEmail" type="text" class="form-control">
+									<p id="errorEmail dnone text"></p>
+								</div>
+								<div>
+									<label class="form-label">Contraseña</label>
+									<input id="loginContrasena" type="password" class="form-control">
+								</div>
+								<div>
+									<label class="form-label">Repita la contraseña</label>
+									<input id="loginContrasena2" type="password" class="form-control">
+								</div>
+								<p id="errorLogin" class="text-primary"></p>
+								<!--Fin del formulario-->
+								<div class="modal-footer">
+									<button id="registroButton" type="password" class="btn btn-primary">Enviar</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div id="footer">
+		<link rel="stylesheet" href="view/css/footer.css">
+		<div class="container text-muted footer-background">
+			<div id="container" class="row row-cols-3 g-2 p-3 align-content-center">
+				<div class="col-lg-3 col-md-3 col-sm-8 col-8 my-auto">
+					<p class="title h1">
+						UNI EIBAR ERMUA
+					</p>
+				</div>
+
+				<!-- Grid column -->
+				<div class="col-lg-3 col-md-3 col-sm-8 col-8 mx-auto mb-3">
+					<!-- Links -->
+					<h6 class="text-uppercase fw-bold mb-3 text-white">
+						Asistencia
+					</h6>
+					<p>
+						<a href="#!" class="text-reset">Asistencia de matricula</a>
+					</p>
+					<p>
+						<a href="#!" class="text-reset">FaQ</a>
+					</p>
+					<p>
+						<a href="#!" class="text-reset">Centro de ayuda</a>
+					</p>
+					<p>
+						<a href="#!" class="text-reset">Politicas de servicio postventa</a>
+					</p>
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-lg-3 col-md-3 col-sm-8 col-8 mx-auto mb-3">
+					<!-- Links -->
+					<h6 class="text-uppercase fw-bold mb-3 text-white">
+						Categorias de producto
+					</h6>
+					<p>
+						<a href="#!" class="text-reset">De consumo general</a>
+					</p>
+					<p>
+						<a href="#!" class="text-reset">Profesional</a>
+					</p>
+					<p>
+						<a href="#!" class="text-reset">Empresa</a>
+					</p>
+				</div>
+				<!-- Grid column -->
+
+				<div class="col-lg-3 col-md-3 col-sm-8 col-8 my-auto">
+					<section class="mb-3 text-center">
+						<!-- Facebook -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+								class="fab fa-facebook-f"></i></a>
+						<!-- Twitter -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+								class="fab fa-twitter"></i></a>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+								class="fab fa-instagram"></i></a>
+					</section>
+				</div>
+			</div>
+			</section>
+		</div>
+		<hr id="hr" class="text-muted">
+		<div id="enlaces" class="p-2 text-muted">
+			<a href="#">Politica de privacidad</a> -
+			<a href="#">Uso de cookies</a> -
+			<a href="#">Terminos de uso</a>
+		</div>
+		<div id="copy" class="p-2 text-muted">
+			© 2021 Copyright: Uni Eibar Ermua
+		</div>
 	</div>
 	<!--SCRIPTS-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -79,6 +252,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/c4fc8a3024.js"></script>
 	<script src="./view/js/general.js"></script>
 	<script src="./view/js/index.js"></script>
 </body>
