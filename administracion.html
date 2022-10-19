@@ -65,7 +65,7 @@
               </div>
               <div>
                 <label class="form-label">Edad</label>
-                <input id="insertEdad" type="number" class="form-control" placeholder="" value="" required>
+                <input id="insertEdad" type="number" class="form-control" placeholder="" pattern="/^[1-9]?[0-9]{1}$|^100$/" value="" required>
               </div>
               <p id="errorLogin" class="text-danger"></p>
               <!--Fin del formulario-->
@@ -105,7 +105,7 @@
               </div>
               <div>
                 <label class="form-label">Edad</label>
-                <input id="editEdad" type="number" class="form-control" required>
+                <input id="editEdad" type="text" pattern="/^[1-9]?[0-9]{1}$|^100$/" class="form-control" required>
               </div>
               <p id="errorLogin" class="text-danger"></p>
               <!--Fin del formulario-->

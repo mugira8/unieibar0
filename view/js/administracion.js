@@ -28,7 +28,7 @@ function getAlumnos(){
                     "<td>" + result.list[i].apellido + "</td>" +
                     "<td>" + result.list[i].email + "</td>" +
                     "<td>" + result.list[i].edad + "</td>" +
-                    "<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button>" +
+                    "<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button> " +
                     "<button onclick=deleteAlumno("+ result.list[i].id +") type='button' class='btn btn-danger'>Borrar</button> </td>" +
                     "</tr>"
             i++;
