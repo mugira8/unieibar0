@@ -4,7 +4,6 @@ include_once ("connect_data.php");
 include_once ("alumnosClass.php");
 
 class alumnosModel extends alumnosClass {
-
 	private $link;
 		
 	public function OpenConnect() {
@@ -55,7 +54,7 @@ public function listAlumnos()
 	public function findAlumno(){
 		$this->OpenConnect();
 		$apellido=$this->apellido;
-		$sql = "SELECT * FROM alumnos WHERE apellido LIKE '$apellido%'";
+		$sql = "SELECT * FROM alumnos WHERE apellido LIKE '%$apellido%'";
 		$list = array();
 
 		$result=$this->link->query($sql);
