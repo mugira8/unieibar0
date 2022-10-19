@@ -43,6 +43,10 @@ a{
     color: white;
 }
 
+.estrechar:hover {
+    -webkit-transform:scale(0.9);transform:scale(0.9);
+}
+.estrechar {overflow:hidden;}
 
 
 #footer{
