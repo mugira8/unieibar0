@@ -7,6 +7,7 @@ class alumnosClass
     protected $apellido;
     protected $email;
     protected $edad;
+    protected $curso_ID;
 
     /**
      * Get the value of id
@@ -104,6 +105,26 @@ class alumnosClass
     public function setEdad($edad)
     {
         $this->edad = $edad;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuarioId
+     */ 
+    public function getUsuarioId()
+    {
+        return $this->usuario_Id;
+    }
+
+    /**
+     * Set the value of usuarioId
+     *
+     * @return  self
+     */ 
+    public function setUsuarioId($usuario_Id)
+    {
+        $this->usuario_Id = $usuario_Id;
 
         return $this;
     }

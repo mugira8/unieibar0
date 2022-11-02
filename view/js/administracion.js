@@ -11,6 +11,7 @@ function sessionVarsView() {
 }
 
 $(window).on("load", getAlumnos());
+
 function getAlumnos(){
 	let url = "controller/cGetAlumnos.php";
 	fetch(url, {
@@ -22,13 +23,13 @@ function getAlumnos(){
 		while (result.list[i] != null)
 		{
 			table += "<tr>" +
-					"<th scope='row'>" + i + "</th>" + 
+					"<th scope='row'>" + (parseInt(i)+1) + "</th>" + 
 					"<td>" + result.list[i].nombre + "</td>" +
 					"<td>" + result.list[i].apellido + "</td>" +
 					"<td>" + result.list[i].email + "</td>" +
 					"<td>" + result.list[i].edad + "</td>" +
-					"<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button>" +
-					"<button onclick=deleteAlumno("+ result.list[i].id +") type='button' class='btn btn-danger'>Borrar</button> </td>" +
+					"<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button>&nbsp;" +
+					" <button onclick=deleteAlumno("+ result.list[i].id +") type='button' class='btn btn-danger'>Borrar</button> </td>" +
 					"</tr>"
 			i++;
 		}
@@ -37,7 +38,6 @@ function getAlumnos(){
 }
 
 function deleteAlumno(id){
-	console.log(id);
 	let url = "controller/cDeleteAlumno.php";
 	let data = {'id': id};
 	fetch(url, {
@@ -104,7 +104,7 @@ $("#buscar").on("click", function() {
 					"<th scope='row'>" + result.list[i].id + "</th>" + 
 					"<td>" + result.list[i].nombre + "</td>" +
 					"<td>" + result.list[i].apellido + "</td>" +
-					"<td>" + result.list[i].email + "</td>" +
+					"<td>" + result.list[i].email + "</td>"
 					"<td>" + result.list[i].edad + "</td>" +
 					"<td> <button onclick=updateAlumno("+ result.list[i].id +") type='button' class='btn btn-primary'>Editar</button>" +
 					"<button onclick=deleteAlumno("+ result.list[i].id +") type='button' class='btn btn-danger'>Borrar</button> </td>" +
@@ -119,10 +119,10 @@ $("#crearModal").on("click", function() {
 	$("#crearAlumnoModal").modal("show");
 })
 
-function insertarAlumno() {
+$("#botonCrearAlumno").on("click", function() {
 	let nombre = $("#insertNombre").val();
 	let apellido = $("#insertApellido").val();
-	let email = $("#insertEmail").val();
+	let email = apellido.toLowerCase() + "." + nombre.toLowerCase() + "@uni.eus";
 	let edad = $("#insertEdad").val();
 	let url = "controller/cCrearAlumno.php";
 	let data = {'nombre': nombre, 'apellido': apellido, 'email': email, 'edad': edad};
@@ -134,7 +134,8 @@ function insertarAlumno() {
 		if (result.error == "Success")
 			getAlumnos();
 	})
-}
+})
+
 
 $("#adminIndexButton").on("click", function(){
 	window.location.href = "index.html";

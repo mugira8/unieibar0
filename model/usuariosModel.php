@@ -23,6 +23,35 @@ class usuariosModel extends usuariosClass {
 		mysqli_close($this->link);
 	}
 
+    public function createUser() {
+        $this->OpenConnect();
+
+		$email = $this->email;
+        $contrasena=$this->contrasena;
+
+		$sql= "INSERT INTO usuarios (email, contrasena, admin) 
+		VALUES ('$email', '$contrasena', 0)";
+
+		$this -> link -> query($sql);
+		
+		if ($this -> link -> affected_rows == 1){
+			$sql = "SELECT id FROM usuarios ORDER BY id DESC LIMIT 1;";
+            $result = $this->link->query($sql);
+            
+            if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+            {
+                $ultimoUserId = $row['id'];
+            }
+            mysqli_free_result($result);
+            $this->CloseConnect();
+            return $ultimoUserId;
+		}
+		else {
+			return "Error updating ". $sql ."   ". $this->link->error;
+		}
+		$this->CloseConnect();
+    }
+
     public function findUser(){
         $this->OpenConnect();
 
