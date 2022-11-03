@@ -24,6 +24,7 @@
 			<div class="col-9 d-flex flex-row">
 				<a id="adminButton" href="./administracion.html" class="dnone m-4">Administracion</a>
 				<a id="cursosButton" href="./cursos.html" class="dnone m-4">Cursos</a>
+				<a id="contactoButton" href="./contacto.html" class="m-4">Contacto</a>
 			</div>
 			<div class="col-1">
 				<div class="d-flex flex-row-reverse">
@@ -120,7 +121,7 @@
 						<h5 class="modal-title text-primary" id="exampleModalLabel">LOGIN</h5>
 					</div>
 					<div class="modal-body">
-						<form>
+						<form onsubmit="return false">
 							<div class="row g-3 justify-content-center">
 								<div>
 									<label class="form-label">Email</label>
@@ -133,7 +134,8 @@
 								<p id="errorLogin" class="text-primary"></p>
 								<!--Fin del formulario-->
 								<div class="modal-footer">
-									<button id="loginButton" type="button" class="btn btn-primary">Enviar</button>
+									<input type="submit" id="loginButton" type="button" value="Login" class="btn btn-primary" />
+									<!--<button id="loginButton" type="button" class="btn btn-primary">Enviar</button>-->
 								</div>
 							</div>
 						</form>
@@ -167,7 +169,8 @@
 								<p id="errorLogin" class="text-primary"></p>
 								<!--Fin del formulario-->
 								<div class="modal-footer">
-									<button id="registroButton" type="password" class="btn btn-primary">Enviar</button>
+									<input type="submit" id="registroButton" type="button" value="Register" class="btn btn-primary" />
+									<!--<button id="registroButton" type="password" class="btn btn-primary">Enviar</button>-->
 								</div>
 							</div>
 						</form>
