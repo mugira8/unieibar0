@@ -14,7 +14,14 @@ function sessionVarsView() {
 				$("#adminButton").css("display", "block");
 			}
 		}
-		if (result.admin != 1 && !window.location.href.includes("index")) {
+		if (result.error == "No estas loggeado" && 
+		!window.location.href.includes("index")) {
+			window.location.href = "index.html";
+		}
+		if (result.admin == 0 && 
+			result.error == "No error" && 
+		window.location.href.includes("administracion")
+		) {
 			window.location.href = "index.html";
 		}
 	});

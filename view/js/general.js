@@ -5,7 +5,6 @@ function sessionVarsView() {
 		method: 'GET',
 		headers: { 'Content-Type': 'application/json' }
 	}).then(res => res.json()).then(result => {
-		console.log('session result', result);
 		if (result.error == "no error") {
 			$('#loginModalButton').css("display", "none");
 			$("#logoutButton").css("display", "block");
@@ -16,7 +15,16 @@ function sessionVarsView() {
 				$("#adminButton").css("display", "block");
 			}
 		}
-		if (result.admin != 1 && !window.location.href.includes("index")) {
+		if (result.error == "No estas loggeado" && 
+		!window.location.href.includes("index")) {
+			window.location.href = "index.html";
+		}
+		console.log('session result', result);
+		if (result.admin == 0 && 
+			result.error == "no error" && 
+		window.location.href.includes("administracion")
+		) {
+			console.log("Usuario en administracion")
 			window.location.href = "index.html";
 		}
 	});
