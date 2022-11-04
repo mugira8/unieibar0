@@ -24,6 +24,7 @@
 			<div class="col-9 d-flex flex-row">
 				<a id="adminButton" href="./administracion.html" class="dnone m-4">Administracion</a>
 				<a id="cursosButton" href="./cursos.html" class="dnone m-4">Cursos</a>
+				<a id="contactoButton" href="./contacto.html" class="m-4">Contacto</a>
 			</div>
 			<div class="col-1">
 				<div class="d-flex flex-row-reverse">
@@ -54,8 +55,10 @@
 					<div class="col">
 
 						<div class="card h-100">
-							<img src="https://www.uni.eus/wp-content/uploads/2022/09/ErasmusBilera2022-09-15a2-scaled-350x210.jpg"
-								class="card-img-top ">
+							<div class="estrechar">
+							<a href="https://www.uni.eus/es/noticias/erasmus/"><img src="https://www.uni.eus/wp-content/uploads/2022/09/ErasmusBilera2022-09-15a2-scaled-350x210.jpg"
+								class="card-img-top "></a>
+							</div>
 							<div class="card-body">
 								<h5 class="card-title">ERASMUS</h5>
 							</div>
@@ -64,17 +67,22 @@
 					</div>
 					<div class="col">
 						<div class="card h-100">
-							<img src="https://www.uni.eus/wp-content/uploads/2022/06/GlobalTrainingVertical-350x210.png"
-								class="card-img-top">
+							<div class="estrechar">
+							<a href="https://www.uni.eus/es/noticias/global-training-2/"><img src="https://www.uni.eus/wp-content/uploads/2022/06/GlobalTrainingVertical-350x210.png"
+								class="card-img-top"></a>
+							</div>
 							<div class="card-body">
 								<h5 class="card-title">GLOBAL TRAINING</h5>
 							</div>
 						</div>
 					</div>
+
 					<div class="col">
 						<div class="card h-100">
-							<img src="https://www.uni.eus/wp-content/uploads/2022/06/UrteAmaiera_Aurkezleak2-350x210.jpg"
-								class="card-img-top">
+							<div class="estrechar">
+							<a href="https://www.uni.eus/es/noticias/diplomas/"><img src="https://www.uni.eus/wp-content/uploads/2022/06/UrteAmaiera_Aurkezleak2-350x210.jpg"
+								class="card-img-top"></a>
+							</div>
 							<div class="card-body">
 								<h5 class="card-title">DIPLOMAS</h5>
 							</div>
@@ -113,7 +121,7 @@
 						<h5 class="modal-title text-primary" id="exampleModalLabel">LOGIN</h5>
 					</div>
 					<div class="modal-body">
-						<form>
+						<form onsubmit="return false">
 							<div class="row g-3 justify-content-center">
 								<div>
 									<label class="form-label">Email</label>
@@ -126,9 +134,8 @@
 								<p id="errorLogin" class="text-primary"></p>
 								<!--Fin del formulario-->
 								<div class="modal-footer">
+									<input type="submit" id="loginButton" type="button" value="Login" class="btn btn-primary" />
 									<!--<button id="loginButton" type="button" class="btn btn-primary">Enviar</button>-->
-									<input type="submit" id="loginButton" type="button" value="Login"
-										class="btn btn-primary" />
 								</div>
 							</div>
 						</form>
@@ -165,7 +172,8 @@
 								<p id="errorLogin" class="text-primary"></p>
 								<!--Fin del formulario-->
 								<div class="modal-footer">
-									<button id="registroButton" type="submit" class="btn btn-primary">Enviar</button>
+									<input type="submit" id="registroButton" type="button" value="Register" class="btn btn-primary" />
+									<!--<button id="registroButton" type="password" class="btn btn-primary">Enviar</button>-->
 								</div>
 							</div>
 						</form>
@@ -225,13 +233,13 @@
 				<div class="col-lg-3 col-md-3 col-sm-8 col-8 my-auto">
 					<section class="mb-3 text-center">
 						<!-- Facebook -->
-						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+						<a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/iesunibhi" role="button"><i
 								class="fab fa-facebook-f"></i></a>
-						<!-- Twitter -->
-						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-								class="fab fa-twitter"></i></a>
-						<!-- Instagram -->
-						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+						<!-- Youtube -->
+						<a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/channel/UCeaiMZ-2b57SRM3WlH5u09A" role="button">
+							<i class="fab fa-youtube"></i>
+							<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/uni.eus/" role="button"><i
 								class="fab fa-instagram"></i></a>
 					</section>
 				</div>
