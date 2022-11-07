@@ -78,3 +78,15 @@ a{
 #footer #copy{
     font-size: 12;
 }
+
+.styleContacto{
+    height: 5vh;
+    width: 30vw;
+}
+
+.styleMapa{
+    height: 50vh;
+    width: 35vw;
+    border:0;
+}
+
