@@ -13,43 +13,55 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <!--NAV-->
+
+    <!--NAV-->
+        <hr>
         <div class="row">
             <div class="col-6">
                 <h2>Contacto</h2>
                 <form>
                     <div>
-                        <input type="email" id="email" name="email" placeholder="Email" width="95%"/>
+                        <input type="text" id="Nombre" name="Nombre" placeholder="Nombre" class="styleContacto"/>
                     </div>
                     <br>
                     <div>
-                        <input type="text" id="Nombre" name="Nombre" placeholder="Nombre" width="95%"/>
-                        <!--<input type="email" id="email" name="email" placeholder="Email"/>   -->              
+                        <input type="email" id="email" name="email" placeholder="Email" class="styleContacto"/>              
                     </div>
                     <br>
                     <div>
-                        <input type="tel" id="Teléfono" name="Teléfono" placeholder="Teléfono" width="95%"/>
+                        <input type="tel" id="Teléfono" name="Teléfono" placeholder="Teléfono" class="styleContacto"/>
                     </div>
                     <br>
                     <div>
-                        <input type="text" id="Asunto" name="Asunto" placeholder="Asunto" width="95%"/>
+                        <input type="text" id="Asunto" name="Asunto" placeholder="Asunto" class="styleContacto"/>
                     </div>
                     <br>
                     <div>
-                        <input type="text" id="Mensaje" name="Mensaje" placeholder="Mensaje" width="95%"/>
+                        <textarea type="text" id="Mensaje" name="Mensaje" placeholder="Mensaje" style="height:20vh; width: 30vw; resize: none;" ></textarea>
                     </div>
-                    <br>
                     <div>
-                        <input type="checkbox" id="cbox1" value="first_checkbox">He leido y acepto expresamente en todos sus términos
+                        <input type="checkbox" id="checkbox" value="checkbox">He leido y acepto expresamente todos sus términos
                     </div>
-                    <br>
                     <div>
                         <input type="submit" id="botonCrearAlumno" type="button" value="Enviar" class="btn btn-primary" href="#" />
                     </div>
                 </form>     
             </div>
         <div class="col-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.440177414897!2d-2.491719784233364!3d43.17927399096403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e2af1191939a3%3A0x3527ebcc550f9000!2sUni%20Eibar-Ermua!5e0!3m2!1ses!2ses!4v1667391556962!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br>
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.440177414897!2d-2.491719784233364!3d43.17927399096403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e2af1191939a3%3A0x3527ebcc550f9000!2sUni%20Eibar-Ermua!5e0!3m2!1ses!2ses!4v1667391556962!5m2!1ses!2ses" class="styleMapa" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
+	<!--SCRIPTS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/c4fc8a3024.js"></script>
+	<script src="./view/js/general.js"></script>
 </body>
