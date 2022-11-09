@@ -42,6 +42,7 @@ public function listAlumnos()
 		$alumnos->setApellido($row['apellido']);
 		$alumnos->setEmail($row['email']);
 		$alumnos->setEdad($row["edad"]);
+		$alumnos->setUsuarioId($row['usuario_id']);
 
 		array_push($list, get_object_vars($alumnos));
 	}
@@ -83,9 +84,10 @@ public function listAlumnos()
 		$apellido = $this->apellido;
 		$email = $this->email;
 		$edad = $this->edad;
+		$usuario_Id = $this->usuario_Id;
 
-		$sql= "INSERT INTO alumnos (nombre, apellido, email, edad) 
-		VALUES ('$nombre', '$apellido', '$email', '$edad')";
+		$sql= "INSERT INTO alumnos (nombre, apellido, email, edad, usuario_id) 
+		VALUES ('$nombre', '$apellido', '$email', '$edad', '$usuario_Id')";
 
 		$this -> link -> query($sql);
 		
@@ -164,4 +166,19 @@ public function listAlumnos()
 		$this->CloseConnect();
 	}
 
+	public function matricularAlumno(){
+		$this->OpenConnect();
+		$id = $this->id;
+		$cursoId = $this->curso_Id;
+		$sql = "UPDATE alumnos SET curso_Id='$cursoId' WHERE id = $id";
+
+		if($this -> link -> query($sql)) {
+			return " Record deleted successfully";
+		}
+		else {
+			return "Error updating ". $sql ."   ". $this->link->error;
+		}
+
+		$this->CloseConnect();
+	}
 }//fin
