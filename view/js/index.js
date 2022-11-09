@@ -1,38 +1,8 @@
-function sessionVarsView() {
-	var url = "controller/cSessionVarsView.php";
-	fetch(url, {
-		method: 'GET',
-		headers: { 'Content-Type': 'application/json' }
-	}).then(res => res.json()).then(result => {
-		console.log('session result', result);
-		if (result.error == "no error") {
-			$('#loginModalButton').css("display", "none");
-			$("#logoutButton").css("display", "block");
-			$("#registroModalButton").css("display", "none");
-			$("#cursosButton").css("display", "block");
-			if (result.admin == 1) {
-				$("#adminButton").css("display", "block");
-			}
-		}
-		if (result.error == "No estas loggeado" && 
-		!window.location.href.includes("index")) {
-			window.location.href = "index.html";
-		}
-		if (result.admin == 0 && 
-			result.error == "No error" && 
-		window.location.href.includes("administracion")
-		) {
-			window.location.href = "index.html";
-		}
-	});
-}
-
 $("#loginButton").on("click", function () {
 	let email = $("#loginEmail").val();
 	let contrasena = $("#loginContrasena").val();
 	let url = "controller/cLogin.php";
 	let data = { 'email': email, 'contrasena': contrasena };
-	console.log("date", data)
 	fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(data),
@@ -46,6 +16,7 @@ $("#loginButton").on("click", function () {
 $("#loginModalButton").on("click", function () {
 	$("#loginModal").modal("show");
 })
+
 $("#registroModalButton").on("click", function () {
 	$("#registroModal").modal("show");
 })
@@ -86,6 +57,7 @@ $("#registroButton").on("click", function () {
 					headers: { 'Content-Type': 'application/json' }
 				}).then(res => res.json()).then(result => {
 					console.log(result);
+					$("#registroModal").modal("hide");
 				})
 			}
 		})
@@ -93,7 +65,6 @@ $("#registroButton").on("click", function () {
 	else
 		$('#errorEmail').css('display', 'block');
 })
-
 
 $("#adminButton").on("click", function () {
 	window.location.href = "administracion.html";
