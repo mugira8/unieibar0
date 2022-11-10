@@ -66,6 +66,7 @@ class usuariosModel extends usuariosClass {
         {
 			$this->id = $row['id'];
             $this->admin = $row['admin'];
+
             $usuarioExists = true;
         }
         mysqli_free_result($result);
@@ -111,4 +112,24 @@ class usuariosModel extends usuariosClass {
 		}
 		$this->CloseConnect();
     }
+
+    public function cambiarContrasena(){
+		$this->OpenConnect();
+
+		$id = $this->id;
+		$nuevaContrasena = $this->contrasena;
+
+		$sql = "UPDATE usuarios 
+		SET contrasena='$nuevaContrasena'
+		WHERE id = '$id'";
+
+		if($this -> link -> query($sql)) {
+			return "no error";
+		}
+		else {
+			return "Error updating ". $sql ."   ". $this->link->error;
+		}
+
+		$this->CloseConnect();
+	}
 }

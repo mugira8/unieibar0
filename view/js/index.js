@@ -1,25 +1,3 @@
-function sessionVarsView() {
-	var url = "controller/cSessionVarsView.php";
-	fetch(url, {
-		method: 'GET',
-		headers: { 'Content-Type': 'application/json' }
-	}).then(res => res.json()).then(result => {
-		console.log('session result', result);
-		if (result.error == "no error") {
-			$('#loginModalButton').css("display", "none");
-			$("#logoutButton").css("display", "block");
-			$("#registroModalButton").css("display", "none");
-			$("#cursosButton").css("display", "block");
-			if (result.admin == 1) {
-				$("#adminButton").css("display", "block");
-			}
-		}
-		if (result.admin != 1 && !window.location.href.includes("index")) {
-			window.location.href = "index.html";
-		}
-	});
-}
-
 $("#loginButton").on("click", function () {
 	let email = $("#loginEmail").val();
 	let contrasena = $("#loginContrasena").val();
@@ -86,7 +64,6 @@ $("#registroButton").on("click", function () {
 	else
 		$('#errorEmail').css('display', 'block');
 })
-
 
 $("#adminButton").on("click", function () {
 	window.location.href = "administracion.html";
