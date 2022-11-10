@@ -99,3 +99,9 @@ a{
 .colorFondo{
     background-color: #FFFFFF;
 }
+
+
+.imagenFondo{
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+}

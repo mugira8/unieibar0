@@ -16,10 +16,10 @@ function sessionVarsView() {
 			}
 		}
 		if (result.error == "No estas loggeado" && 
-		!window.location.href.includes("index")) {
+		window.location.href.includes("administracion") &&
+		window.location.href.includes("cursos")) {
 			window.location.href = "index.html";
 		}
-		console.log('session result', result);
 		if (result.admin == 0 && 
 			result.error == "no error" && 
 		window.location.href.includes("administracion")
