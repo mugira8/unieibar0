@@ -1,18 +1,5 @@
 var userId;
 
-$(document).ready(sessionVarsView);
-function sessionVarsView() {
-    var url = "controller/cSessionVarsView.php";
-    fetch(url, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.json()).then(result => {
-        console.log('session result', result);
-        console.log(window.location.href);
-        userId = result.usuario;
-    });
-}
-
 $(window).on("load", getCursos());
 
 function getCursos(){

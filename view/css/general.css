@@ -43,6 +43,11 @@ a{
     color: white;
 }
 
+.estrechar:hover {
+    -webkit-transform:scale(0.9);transform:scale(0.9);
+    transition: .5s;
+}
+.estrechar {overflow:hidden;}
 
 
 #footer{
@@ -73,3 +78,15 @@ a{
 #footer #copy{
     font-size: 12;
 }
+
+.styleContacto{
+    height: 5vh;
+    width: 30vw;
+}
+
+.styleMapa{
+    height: 50vh;
+    width: 35vw;
+    border:0;
+}
+

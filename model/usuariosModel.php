@@ -132,4 +132,19 @@ class usuariosModel extends usuariosClass {
 
 		$this->CloseConnect();
 	}
+    public function getLastId()
+    {
+        $this->OpenConnect();
+
+        $lastId = 0;
+
+        $sql = "SELECT MAX(id) FROM usuarios";
+
+        $result = $this->link->query($sql);
+
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+            $lastId = $row['MAX(id)'];
+        return $lastId;
+        $this->CloseConnect();
+    }
 }

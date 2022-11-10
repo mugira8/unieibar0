@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./view/css/general.css">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--NAV-->
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="./view/images/logo.jpg" alt="" width="150"
+                        height="60"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a id="adminButton" class="dnone m-4" href="./administracion.html">Administracion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="cursosButton" class="dnone m-4" href="./cursos.html">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="contactoButton" class="m-4" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <nav class="navbar-nav ms-auto">
+                        <form class="container-fluid justify-content-start">
+                            <button id="loginModalButton" type="button" class="btn btn-primary m-3">Login</button>
+                            <button id="registroModalButton" type="button" class="btn btn-danger m-3">Registrar</button>
+                            <button id="logoutButton" type="button" class="dnone btn btn-danger m-3">Logout</button>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </nav>
+        <!--NAV-->
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <h2>Contacto</h2>
+                <form>
+                    <div>
+                        <input type="text" id="Nombre" name="Nombre" placeholder="Nombre" class="styleContacto" />
+                    </div>
+                    <br>
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="Email" class="styleContacto" />
+                    </div>
+                    <br>
+                    <div>
+                        <input type="tel" id="Teléfono" name="Teléfono" placeholder="Teléfono" class="styleContacto" />
+                    </div>
+                    <br>
+                    <div>
+                        <input type="text" id="Asunto" name="Asunto" placeholder="Asunto" class="styleContacto" />
+                    </div>
+                    <br>
+                    <div>
+                        <textarea type="text" id="Mensaje" name="Mensaje" placeholder="Mensaje"
+                            style="height:20vh; width: 30vw; resize: none;"></textarea>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checkbox" value="checkbox">He leido y acepto expresamente todos sus
+                        términos
+                    </div>
+                    <div>
+                        <input type="submit" id="botonCrearAlumno" type="button" value="Enviar" class="btn btn-primary"
+                            href="#" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <br>
+                <br>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.440177414897!2d-2.491719784233364!3d43.17927399096403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e2af1191939a3%3A0x3527ebcc550f9000!2sUni%20Eibar-Ermua!5e0!3m2!1ses!2ses!4v1667391556962!5m2!1ses!2ses"
+                    class="styleMapa" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <!--Login alumno-->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="exampleModalLabel">LOGIN</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="return false">
+                            <div class="row g-3 justify-content-center">
+                                <div>
+                                    <label class="form-label">Email</label>
+                                    <input id="loginEmail" type="text" class="form-control">
+                                </div>
+                                <div>
+                                    <label class="form-label">Contraseña</label>
+                                    <input id="loginContrasena" type="password" class="form-control">
+                                </div>
+                                <p id="errorLogin" class="text-primary"></p>
+                                <!--Fin del formulario-->
+                                <div class="modal-footer">
+                                    <input type="submit" id="loginButton" type="button" value="Login"
+                                        class="btn btn-primary" />
+                                    <!--<button id="loginButton" type="button" class="btn btn-primary">Enviar</button>-->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Registro alumno-->
+        <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="titleRegistro">REGISTRO</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="return false">
+                            <div class="row g-3 justify-content-center">
+                                <div>
+                                    <label class="form-label">Email</label>
+                                    <input id="registroEmail" type="text" class="form-control">
+                                    <p id="errorEmail" class="dnone text-danger">Compruebe que el email sea valido</p>
+                                </div>
+                                <div>
+                                    <label class="form-label">Contraseña (Minimo 6 caracteres)</label>
+                                    <input id="registroContrasena" type="password" class="form-control">
+                                </div>
+                                <div>
+                                    <label class="form-label">Repita la contraseña</label>
+                                    <input id="registroContrasena2" type="password" class="form-control">
+                                    <p id="errorContrasena" class="dnone text-danger">Las contraseñas introducidas no
+                                        coinciden o no son validas</p>
+                                </div>
+                                <!--Fin del formulario-->
+                                <div class="modal-footer">
+                                    <input type="submit" id="registroButton" type="button" value="Register"
+                                        class="btn btn-primary" />
+                                    <!--<button id="registroButton" type="password" class="btn btn-primary">Enviar</button>-->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--SCRIPTS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/c4fc8a3024.js"></script>
+        <script src="./view/js/general.js"></script>
+
+</body>

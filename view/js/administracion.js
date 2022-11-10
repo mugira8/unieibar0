@@ -1,15 +1,3 @@
-$(document).ready(sessionVarsView);
-function sessionVarsView() {
-	var url = "controller/cSessionVarsView.php";
-	fetch(url, {
-		method: 'GET',
-		headers: { 'Content-Type': 'application/json' }
-	}).then(res => res.json()).then(result => {
-		console.log('session result', result);
-		console.log(window.location.href);
-	});
-}
-
 $(window).on("load", getAlumnos());
 
 function getAlumnos(){
@@ -122,10 +110,10 @@ $("#crearModal").on("click", function() {
 $("#botonCrearAlumno").on("click", function() {
 	let nombre = $("#insertNombre").val();
 	let apellido = $("#insertApellido").val();
-	let email = apellido.toLowerCase() + "." + nombre.toLowerCase() + "@uni.eus";
+	//let email = apellido.toLowerCase() + "." + nombre.toLowerCase() + "@uni.eus";
 	let edad = $("#insertEdad").val();
 	let url = "controller/cCrearAlumno.php";
-	let data = {'nombre': nombre, 'apellido': apellido, 'email': email, 'edad': edad};
+	let data = {'nombre': nombre, 'apellido': apellido, 'edad': edad};
 	fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(data),
