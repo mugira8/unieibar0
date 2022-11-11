@@ -158,6 +158,39 @@
 				</div>
 			</div>
 		</div>
+
+		<!--Cambiar contraseña alumno-->
+		<div class="modal fade" id="cambiarContrasenaModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-primary" id="exampleModalLabel">ESTABLECER CONTRASEÑA</h5>
+					</div>
+					<div class="modal-body">
+						<form onsubmit="return false">
+							<div class="row g-3 justify-content-center">
+								<div>
+									<label class="form-label">Nueva contraseña</label>
+									<input id="cambiarPass" type="password" class="form-control">
+								</div>
+								<div>
+									<label class="form-label">Confirmar contraseña</label>
+									<input id="confirmarPass" type="password" class="form-control">
+								</div>
+								<p id="errorCambioContrasena" class="dnone text-danger">Las contraseñas introducidas no
+									coinciden o no son validas</p>
+								<!--Fin del formulario-->
+								<div class="modal-footer">
+									<!--<button id="loginButton" type="button" class="btn btn-primary">Enviar</button>-->
+									<input type="submit" id="cambioContrasenaButton" type="button" value="Confirmar" class="btn btn-primary" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!--Registro alumno-->
 		<div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="crModalLabel" aria-hidden="false">
 			<div class="modal-dialog">
@@ -197,6 +230,7 @@
 		</div>
 
 	</div>
+	
 	<div id="footer">
 		<div class="container text-muted footer-background">
 			<div id="container" class="row row-cols-3 g-2 p-3 align-content-center">

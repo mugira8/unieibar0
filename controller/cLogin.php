@@ -17,6 +17,13 @@ if ($email!=null){
         session_start();
         $_SESSION['usuario']=$usuario->getId();
         $_SESSION['admin']=$usuario->getAdmin();
+        $_SESSION['newUser']=false;
+        
+        if($contrasena=='Ikasle123'){
+            $_SESSION['newUser']=true;
+        }
+
+        $response['newUser'] = $_SESSION['newUser'];
         $response['error']="no error";
     }else{
         $response['error']="incorrect user";
@@ -24,7 +31,8 @@ if ($email!=null){
 }else{
     $response['error']="insert data";
 }   
-    $response['error']="No error";
+$response['error']="No error";
 
-    echo json_encode($response);
-    unset($response);
+echo json_encode($response);
+
+unset($response);
