@@ -18,7 +18,7 @@ function getCursos(){
                     "<td>" + result.list[i].horas + "</td>" +
                     "<td>" + result.list[i].fecha_inicio + "</td>" +
                     "<td>" + result.list[i].fecha_fin + "</td>" +
-                    "<td><button type='button' id='matricularButton' ("+ result.list[i].id +") class='btn btn-primary'>Matricular</button></td>" +
+                    "<td><button type='button' onclick=matricularAlumno("+ result.list[i].id +") id='matricularButton' class='btn btn-primary'>Matricular</button></td>" +
                     "</tr>"
             i++;
         }
@@ -26,19 +26,15 @@ function getCursos(){
     })
 }
 
-$("#matricularButton").on("click", function() {
-	$("#loginModal").modal("show");
-})
-
 function matricularAlumno(cursoId){
-    let url = "controller/cMatricularAlumno.php";
-	let data = {'cursoId': cursoId, 'loggedUser' : userId};
+    let url = "controller/cCrearCursoAlumno.php";
+	let data = {'cursoId': cursoId};
     fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(data),
 		headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(result => {
-        if (result.error == "Success")
+        if (result.error == "no error")
         getCursos();
     })
 }
