@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./view/css/general.css">
     <title>Contacto</title>
 </head>
@@ -15,36 +17,36 @@
 <body>
     <div class="container">
         <!--NAV-->
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="./view/images/logo.jpg" alt="" width="150"
-                        height="60"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a id="adminButton" class="dnone m-4" href="./administracion.html">Administracion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="cursosButton" class="dnone m-4" href="./cursos.html">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="contactoButton" class="m-4" href="./contacto.html">Contacto</a>
-                        </li>
-                    </ul>
-                    <nav class="navbar-nav ms-auto">
-                        <form class="container-fluid justify-content-start">
-                            <button id="loginModalButton" type="button" class="btn btn-primary m-3">Login</button>
-                            <button id="registroModalButton" type="button" class="btn btn-danger m-3">Registrar</button>
-                            <button id="logoutButton" type="button" class="dnone btn btn-danger m-3">Logout</button>
-                        </form>
-                    </nav>
-                </div>
-            </div>
-        </nav>
+		<nav class="navbar navbar-expand-lg bg-white">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html"><img src="./view/images/logo.jpg" alt="" width="150"
+						height="60"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a id="adminButton" class="nav-link page-link dnone"
+								href="./administracion.html">Administracion</a>
+						</li>
+						<li class="nav-item">
+							<a id="cursosButton" class="nav-link page-link dnone" href="./cursos.html">Cursos</a>
+						</li>
+						<li class="nav-item">
+							<a id="contactoButton" class="page-link" href="./contacto.html">Contacto</a>
+						</li>
+					</ul>
+					<div class="d-flex">
+						<button id="loginModalButton" type="button" class="btn btn-primary m-3">Login</button>
+						<button id="registroModalButton" type="button" class="btn btn-danger m-3">Registrar</button>
+						<button id="logoutButton" type="button" class="dnone btn btn-danger m-3">Logout</button>
+					</div>
+				</div>
+			</div>
+		</nav>
         <!--NAV-->
         <hr>
         <div class="row">
@@ -161,13 +163,10 @@
         </div>
         <!--SCRIPTS-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/c4fc8a3024.js"></script>
         <script src="./view/js/general.js"></script>
-
 </body>

@@ -1,11 +1,12 @@
 .dnone{
     display: none;
 }
-a{
+.page-link{
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
     color: rgb(140, 48, 232);
+    border: none;
 }
 
 .parallax {
