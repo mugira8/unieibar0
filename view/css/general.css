@@ -1,11 +1,12 @@
 .dnone{
     display: none;
 }
-a{
+.page-link{
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
     color: rgb(140, 48, 232);
+    border: none;
 }
 
 .parallax {
@@ -43,11 +44,17 @@ a{
     color: white;
 }
 
-.estrechar:hover {
+.animacion:hover {
     -webkit-transform:scale(0.9);transform:scale(0.9);
     transition: .5s;
 }
-.estrechar {overflow:hidden;}
+.animacion {overflow:hidden;}
+
+.animacion {
+    -webkit-transform: scale(1);transform:scale(1);
+    transition: .5s;
+}
+.animacion {overflow:hidden;}
 
 
 #footer{
@@ -90,3 +97,12 @@ a{
     border:0;
 }
 
+.colorFondo{
+    background-color: #FFFFFF;
+}
+
+
+.imagenFondo{
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+}
