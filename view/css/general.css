@@ -22,7 +22,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/parrallax-eibar.jpg);
+    background-image: url(../images/parallax.jpg);
 }
 
 .paraCont {
@@ -58,7 +58,7 @@
 
 
 #footer{
-    background-color: rgb(204, 204, 204);
+    background-color: rgb(223, 187, 242);
 }
 
 #footer #hr{
