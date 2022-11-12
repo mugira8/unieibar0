@@ -76,6 +76,21 @@ public function listAlumnos()
 		return $list;
 	}
 
+	public function findAlumnoIdByUsuarioId(){
+		$this->OpenConnect();
+		$usuarioId=$this->usuario_id;
+		$sql = "SELECT id FROM alumnos WHERE usuario_id='$usuarioId'";
+
+		$result=$this->link->query($sql);
+		if ($row = $result->fetch_array(MYSQLI_ASSOC))
+		{
+			$alumnoId=$row['id'];
+		}
+		mysqli_free_result($result);
+		$this->CloseConnect();
+		return $alumnoId;
+	}
+
 	public function createAlumno()
 	{
 		$this->OpenConnect();
@@ -155,22 +170,6 @@ public function listAlumnos()
 		$this->OpenConnect();
 		$id = $this->getId();
 		$sql = "DELETE FROM alumnos WHERE id = $id";
-
-		if($this -> link -> query($sql)) {
-			return " Record deleted successfully";
-		}
-		else {
-			return "Error updating ". $sql ."   ". $this->link->error;
-		}
-
-		$this->CloseConnect();
-	}
-
-	public function matricularAlumno(){
-		$this->OpenConnect();
-		$id = $this->id;
-		$cursoId = $this->curso_Id;
-		$sql = "UPDATE alumnos SET curso_Id='$cursoId' WHERE id = $id";
 
 		if($this -> link -> query($sql)) {
 			return " Record deleted successfully";
