@@ -146,11 +146,10 @@ public function listAlumnos()
 		$id = $this->id;
 		$nombre = $this->nombre;
 		$apellido = $this->apellido;
-		$email = $this->email;
 		$edad = $this->edad;
 
 		$sql= "UPDATE alumnos
-		SET nombre='$nombre', apellido='$apellido', email='$email', edad='$edad'
+		SET nombre='$nombre', apellido='$apellido', edad='$edad'
 		WHERE id='$this->id'";
 
 		$this -> link -> query($sql);
@@ -184,11 +183,12 @@ public function listAlumnos()
 	public function checkUsuarioAlumno(){
 		$this->OpenConnect();
 
-		$usuario_id = $this->getCurso_ID();
+		$usuario_id = $this->getUsuario_id();
 
 		$sql = "SELECT * FROM alumnos WHERE usuario_id = $usuario_id";
 		
-		if ($this -> link -> query($sql)){
+		$this -> link -> query($sql);
+		if ($this -> link -> affected_rows != null){
 			return true;
 		}
 		else {

@@ -21,6 +21,7 @@ else
 $response['usuario']= $usuario;
 $response['admin'] = $admin;
 $response['newUser'] = $_SESSION['newUser'];
+$response['email'] = $_SESSION['email'];
 
 echo json_encode($response);
 

@@ -140,8 +140,8 @@ $("#registroButton").on("click", function () {
 					body: JSON.stringify(data),
 					headers: { 'Content-Type': 'application/json' }
 				}).then(res => res.json()).then(result => {
-					console.log(result);
 					$("#registroModal").modal("hide");
+					alert("Te has registrado");
 				})
 			}
 		})

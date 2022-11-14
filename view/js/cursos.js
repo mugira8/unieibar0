@@ -42,7 +42,7 @@ function matricularAlumno(cursoId){
                 getCursos();
         })
     } else{
-        $("#");
+        $("#crearAlumnoModal").modal('show');
     }
 }
 

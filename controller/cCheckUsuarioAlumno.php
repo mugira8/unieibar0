@@ -5,7 +5,7 @@ session_start();
 
 $alumno = new alumnosModel();
 echo $_SESSION['usuario'];
-$alumno->setCurso_ID($_SESSION['usuario']);
+$alumno->setUsuario_id($_SESSION['usuario']);
 
 if(isset($alumno))
 {

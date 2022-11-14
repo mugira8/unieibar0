@@ -7,7 +7,6 @@ $data = json_decode(file_get_contents("php://input"), true);
 $id = $data['id'];
 $nombre = $data['nombre'];
 $apellido = $data['apellido'];
-$email = $data['email'];
 $edad = $data['edad'];
 
 $alumno = new alumnosModel();

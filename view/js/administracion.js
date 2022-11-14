@@ -53,7 +53,6 @@ function updateAlumno(id){
 		$("#editId").val(result.id);
 		$("#editNombre").val(result.nombre);
 		$("#editApellido").val(result.apellido);
-		$("#editEmail").val(result.email);
 		$("#editEdad").val(result.edad);
 		getAlumnos();
 	})
@@ -63,17 +62,18 @@ $("#botonEditarAlumno").on("click", function() {
 	let id = $("#editId").val();
 	let nombre = $("#editNombre").val();
 	let apellido = $("#editApellido").val();
-	let email = $("#editEmail").val();
 	let edad = $("#editEdad").val();
 	let url = "controller/cUpdateAlumno.php";
-	let data = {'id':id, 'nombre': nombre, 'apellido': apellido, 'email': email, 'edad': edad};
+	let data = {'id':id, 'nombre': nombre, 'apellido': apellido, 'edad': edad};
 	fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(data),
 		headers: { 'Content-Type': 'application/json' }
 	}).then (res => res.json()).then(result => {
-		if (result.error == "Success")
+		if (result.error == "Success"){
 			getAlumnos();
+			$('#editarAlumnoModal').modal('hide');
+		}
 	})
 })
 

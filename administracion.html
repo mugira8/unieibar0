@@ -106,7 +106,6 @@
 							<p id="errorLogin" class="text-danger"></p>
 							<!--Fin del formulario-->
 							<div class="modal-footer">
-								<!--<input id="botonCrearAlumno" data-bs-dismiss="modal" class="col-3 btn btn-primary" value="Submit" type="submit">Enviar</input>-->
 								<input type="submit" id="botonCrearAlumno" type="button" value="Enviar"
 									class="btn btn-primary" />
 							</div>
@@ -126,7 +125,7 @@
 					<h5 class="modal-title text-primary" id="exampleModalLabel">EDITAR ALUMNO</h5>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form onsubmit="return false">
 						<div class="row g-3 justify-content-center">
 							<label id="editId"></label>
 							<div>
@@ -137,10 +136,6 @@
 								<label class="form-label">Apellido</label>
 								<input id="editApellido" type="text" class="form-control" required>
 							</div>
-							<!--<div>
-								<label class="form-label">Email</label>
-								<input id="editEmail" type="text" class="form-control" required>
-							</div>-->
 							<div>
 								<label class="form-label">Edad</label>
 								<input id="editEdad" type="text" class="form-control" required>
@@ -148,7 +143,6 @@
 							<p id="errorLogin" class="text-danger"></p>
 							<!--Fin del formulario-->
 							<div class="modal-footer">
-								<!--<button id="botonEditarAlumno" data-bs-dismiss="modal" class="col-3 btn btn-primary">Enviar</button>-->
 								<input type="submit" id="botonEditarAlumno" type="button" value="Enviar"
 									class="btn btn-primary" />
 							</div>
