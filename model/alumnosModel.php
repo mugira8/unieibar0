@@ -197,4 +197,21 @@ public function listAlumnos()
 
 		$this->CloseConnet();
 	}
+
+	public function getAlumnoIdWithUsuarioId(){
+		$this->OpenConnect();
+
+		$usuario_id = $this->getUsuario_id();
+		$alumno_id = null;
+
+		$sql = "SELECT id FROM alumnos WHERE usuario_id = $usuario_id";
+		$result = $this->link->query($sql);
+
+		if($row = $result->fetch_array(MYSQLI_ASSOC)){
+			$alumno_id = $row['id'];
+		}
+		mysqli_free_result($result);
+		$this->CloseConnect();
+		return $alumno_id;
+	}
 }//fin

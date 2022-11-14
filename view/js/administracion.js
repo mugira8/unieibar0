@@ -35,7 +35,6 @@ function deleteAlumno(id){
 			body: JSON.stringify(data),
 			headers: { 'Content-Type': 'application/json' }
 		}).then(res => res.json()).then(result => {
-			console.log(result);
 			getAlumnos();
 		})
 	}
@@ -112,7 +111,6 @@ $("#crearModal").on("click", function() {
 $("#botonCrearAlumno").on("click", function() {
 	let nombre = $("#insertNombre").val();
 	let apellido = $("#insertApellido").val();
-	//let email = apellido.toLowerCase() + "." + nombre.toLowerCase() + "@uni.eus";
 	let edad = $("#insertEdad").val();
 	let url = "controller/cCrearAlumno.php";
 	let data = {'nombre': nombre, 'apellido': apellido, 'edad': edad};
@@ -121,9 +119,7 @@ $("#botonCrearAlumno").on("click", function() {
 		body: JSON.stringify(data),
 		headers: { 'Content-Type': 'application/json' }
 	}).then (res => res.json()).then(result => {
-		console.log(result);
 		if (result.error == "Success"){
-			console.log("crear alumno succes")
 			getAlumnos();
 			$("#crearAlumnoModal").modal("hide");
 		}

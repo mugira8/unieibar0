@@ -23,6 +23,31 @@ class cursosAlumnosModel extends cursosAlumnosClass {
 		mysqli_close($this->link);
 	}
 
+	public function listCursoAlumnos(){
+		$this->OpenConnect();
+
+		$alumnoId = $this->alumno_Id;
+		$sql = "SELECT * FROM curso_alumno WHERE alumno_id = $alumnoId";
+		$list = array();
+	
+		$result=$this->link->query($sql);
+	
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+			$cursosAlumnos = new cursosAlumnosModel();
+	
+			$cursosAlumnos->setId($row['id']);
+			$cursosAlumnos->setAlumnoId($row['alumno_id']);
+			$cursosAlumnos->setCursoId($row['curso_id']);
+	
+			array_push($list, get_object_vars($cursosAlumnos));
+		}
+	
+		mysqli_free_result($result);
+		$this->CloseConnect();
+		return $list;
+	}
+
     public function createCursoAlumno() {
         $this->OpenConnect();
 

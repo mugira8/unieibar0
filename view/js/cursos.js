@@ -19,7 +19,6 @@ function getCursos(){
                     "<td>" + result.list[i].fecha_inicio + "</td>" +
                     "<td>" + result.list[i].fecha_fin + "</td>" +
                     "<td><button type='button' onclick=matricularAlumno("+ result.list[i].id +") id='matricularButton' class='btn btn-primary'>Matricular</button></td>" +
-                    "<td><button type='button' onclick=desMatricularAlumno("+ result.list[i].id +") id='quitarMatricularButton' class='dnone btn btn-primary'>Matricular</button></td>" +
                     "</tr>"
             i++;
         }
@@ -28,36 +27,53 @@ function getCursos(){
 }
 
 function matricularAlumno(cursoId){
-    let alumno = checkUsuarioAlumno().then(result.error);
-    console.log("Result dentro de matricular", alumno);
-    if(alumno){
-        let url = "controller/cCrearCursoAlumno.php";
-        let data = {'cursoId': cursoId};
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
-        }).then(res => res.json()).then(result => {
-            if (result.error == "no error")
-                getCursos();
-        })
-    } else{
-        $("#crearAlumnoModal").modal('show');
+    if(confirm("Estas seguro de que te quieres matricular? Si quieres desmatricularte tendras que ponerte en contacto con el centro")){
+        let check = checkUsuarioAlumno();
+
+        check.then(response => {
+            if(response == true){
+                let url = "controller/cCrearCursoAlumno.php";
+                let data = {'cursoId': cursoId};
+                fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: { 'Content-Type': 'application/json' }
+                }).then(res => res.json()).then(result => {
+                    if (result.error == "no error")
+                        getCursos();
+                })
+            } else{
+                $("#crearAlumnoModal").modal('show');
+            }
+        });
     }
 }
 
-function desMatricularAlumno(cursoId){
-
-}
-
-function checkUsuarioAlumno()
+async function checkUsuarioAlumno()
 {
     let url = "controller/cCheckUsuarioAlumno.php";
-    fetch(url, {
+    return fetch(url, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(result => {
-        console.log("result dentro de check", result);
-        return result;
+        return result.error;
     })
 }
+
+$("#botonCrearAlumno").on("click", function() {
+	let nombre = $("#insertNombre").val();
+	let apellido = $("#insertApellido").val();
+	let edad = $("#insertEdad").val();
+	let url = "controller/cCrearAlumno.php";
+	let data = {'nombre': nombre, 'apellido': apellido, 'edad': edad};
+	fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(data),
+		headers: { 'Content-Type': 'application/json' }
+	}).then (res => res.json()).then(result => {
+		if (result.error == "Success"){
+			getAlumnos();
+			$("#crearAlumnoModal").modal("hide");
+		}
+	})
+})

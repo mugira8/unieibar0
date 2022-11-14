@@ -32,7 +32,6 @@ function sessionVarsView() {
 			result.error == "no error" &&
 			window.location.href.includes("administracion")) 
 			{
-			console.log("Usuario en administracion")
 			window.location.href = "index.html";
 		}
 	});
@@ -53,7 +52,6 @@ $("#cambioContrasenaButton").on("click", function () {
 			body: JSON.stringify(data),
 			headers: { 'Content-Type': 'application/json' }
 		}).then(res => res.json()).then(result => {
-			console.log(result);
 			if (result.error == "no error") {
 				window.location.href = "index.html";
 			}
@@ -131,11 +129,9 @@ $("#registroButton").on("click", function () {
 				$('#errorEmail').css('display', 'block');
 			if (contrasena == contrasena2 && contrasena != "" && contrasena.length >= 6) {
 				contrasenaValida = true;
-				console.log("Contrasena valida")
 			}
 			else {
 				$("#errorContrasena").css('display', 'block');
-				console.log("Contrasena no valida")
 			}
 			if (emailValido && contrasenaValida) {
 				fetch(urlRegistro, {
