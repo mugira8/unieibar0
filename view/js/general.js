@@ -8,8 +8,8 @@ function sessionVarsView() {
 		if (result.error == "no error") {
 			$('#loginModalButton').css("display", "none");
 			$("#logoutButton").css("display", "block");
+			$("#cambiarContrasenaModal").css("hide");
 			$("#registroModalButton").css("display", "none");
-			$("#cambiarContrasenaModal").css("display", "none");
 			$("#cursosButton").css("display", "block");
 			if (result.admin == 1) {
 				$("#adminButton").css("display", "block");
@@ -17,8 +17,11 @@ function sessionVarsView() {
 			if(result.newUser==true){
 				$("#errorCambioContrasena").css("display", "none");
 				$("#cambiarContrasenaModal").css("display", "block");
+				$("#cambiarContrasenaModal").attr('class', 'modal fade show');
+				$(".body").attr('class', 'modal open');
 				$("#cambiarContrasenaModal").modal({backdrop: 'static', keyboard: false}, "show");
 			}
+
 		}
 		if (result.error == "No estas loggeado" &&
 			window.location.href.includes("administracion") && 
