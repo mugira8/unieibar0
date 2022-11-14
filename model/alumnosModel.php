@@ -180,4 +180,21 @@ public function listAlumnos()
 
 		$this->CloseConnect();
 	}
+
+	public function checkUsuarioAlumno(){
+		$this->OpenConnect();
+
+		$usuario_id = $this->getCurso_ID();
+
+		$sql = "SELECT * FROM alumnos WHERE usuario_id = $usuario_id";
+		
+		if ($this -> link -> query($sql)){
+			return true;
+		}
+		else {
+			return false;
+		}
+
+		$this->CloseConnet();
+	}
 }//fin

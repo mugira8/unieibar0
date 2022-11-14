@@ -28,18 +28,36 @@ function getCursos(){
 }
 
 function matricularAlumno(cursoId){
-    let url = "controller/cCrearCursoAlumno.php";
-	let data = {'cursoId': cursoId};
-    fetch(url, {
-		method: 'POST',
-		body: JSON.stringify(data),
-		headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.json()).then(result => {
-        if (result.error == "no error")
-        getCursos();
-    })
+    let alumno = checkUsuarioAlumno().then(result.error);
+    console.log("Result dentro de matricular", alumno);
+    if(alumno){
+        let url = "controller/cCrearCursoAlumno.php";
+        let data = {'cursoId': cursoId};
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(res => res.json()).then(result => {
+            if (result.error == "no error")
+                getCursos();
+        })
+    } else{
+        $("#");
+    }
 }
 
 function desMatricularAlumno(cursoId){
 
+}
+
+function checkUsuarioAlumno()
+{
+    let url = "controller/cCheckUsuarioAlumno.php";
+    fetch(url, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(result => {
+        console.log("result dentro de check", result);
+        return result;
+    })
 }
