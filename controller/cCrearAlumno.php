@@ -19,17 +19,16 @@ if($ultimoId > 0)
     $usuario->setContrasena('Ikasle123');
 
     $response = array();
-    $response['ultimoUserId'] = $usuario->createUser();
-    var_dump($response);
+    $ultimoUserId = $usuario->createUser();
 
-    if(isset($response['ultimoUserId'])){
+    if(isset($ultimoUserId)){
         $alumno = new alumnosModel();
 
         $alumno->setNombre($nombre);
         $alumno->setApellido($apellido);
         $alumno->setEmail($email);
         $alumno->setEdad($edad);
-        $alumno->setUsuarioId($response['ultimoUserId']);
+        $alumno->setUsuario_id($ultimoUserId);
     
         $response = array();
         $response['error'] = $alumno->createAlumno();

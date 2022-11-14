@@ -19,6 +19,7 @@ function getCursos(){
                     "<td>" + result.list[i].fecha_inicio + "</td>" +
                     "<td>" + result.list[i].fecha_fin + "</td>" +
                     "<td><button type='button' onclick=matricularAlumno("+ result.list[i].id +") id='matricularButton' class='btn btn-primary'>Matricular</button></td>" +
+                    "<td><button type='button' onclick=desMatricularAlumno("+ result.list[i].id +") id='quitarMatricularButton' class='dnone btn btn-primary'>Matricular</button></td>" +
                     "</tr>"
             i++;
         }
@@ -27,14 +28,36 @@ function getCursos(){
 }
 
 function matricularAlumno(cursoId){
-    let url = "controller/cCrearCursoAlumno.php";
-	let data = {'cursoId': cursoId};
+    let alumno = checkUsuarioAlumno().then(result.error);
+    console.log("Result dentro de matricular", alumno);
+    if(alumno){
+        let url = "controller/cCrearCursoAlumno.php";
+        let data = {'cursoId': cursoId};
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(res => res.json()).then(result => {
+            if (result.error == "no error")
+                getCursos();
+        })
+    } else{
+        $("#");
+    }
+}
+
+function desMatricularAlumno(cursoId){
+
+}
+
+function checkUsuarioAlumno()
+{
+    let url = "controller/cCheckUsuarioAlumno.php";
     fetch(url, {
-		method: 'POST',
-		body: JSON.stringify(data),
-		headers: { 'Content-Type': 'application/json' }
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(result => {
-        if (result.error == "no error")
-        getCursos();
+        console.log("result dentro de check", result);
+        return result;
     })
 }
