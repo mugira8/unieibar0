@@ -19,6 +19,7 @@ function getCursos(){
                     "<td>" + result.list[i].fecha_inicio + "</td>" +
                     "<td>" + result.list[i].fecha_fin + "</td>" +
                     "<td><button type='button' onclick=matricularAlumno("+ result.list[i].id +") id='matricularButton' class='btn btn-primary'>Matricular</button></td>" +
+                    "<td><button type='button' onclick=desMatricularAlumno("+ result.list[i].id +") id='quitarMatricularButton' class='dnone btn btn-primary'>Matricular</button></td>" +
                     "</tr>"
             i++;
         }
@@ -37,4 +38,8 @@ function matricularAlumno(cursoId){
         if (result.error == "no error")
         getCursos();
     })
+}
+
+function desMatricularAlumno(cursoId){
+
 }
