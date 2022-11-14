@@ -28,7 +28,7 @@ if($ultimoId > 0)
         $alumno->setApellido($apellido);
         $alumno->setEmail($email);
         $alumno->setEdad($edad);
-        $alumno->setUsuarioId($ultimoUserId);
+        $alumno->setUsuario_id($ultimoUserId);
     
         $response = array();
         $response['error'] = $alumno->createAlumno();

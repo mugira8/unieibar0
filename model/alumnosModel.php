@@ -42,7 +42,7 @@ public function listAlumnos()
 		$alumnos->setApellido($row['apellido']);
 		$alumnos->setEmail($row['email']);
 		$alumnos->setEdad($row["edad"]);
-		$alumnos->setUsuarioId($row['usuario_id']);
+		$alumnos->setUsuario_id($row['usuario_id']);
 
 		array_push($list, get_object_vars($alumnos));
 	}
@@ -99,7 +99,7 @@ public function listAlumnos()
 		$apellido = $this->apellido;
 		$email = $this->email;
 		$edad = $this->edad;
-		$usuario_Id = $this->usuario_Id;
+		$usuario_Id = $this->usuario_id;
 
 		$sql= "INSERT INTO alumnos (nombre, apellido, email, edad, usuario_id) 
 		VALUES ('$nombre', '$apellido', '$email', '$edad', '$usuario_Id')";
