@@ -95,8 +95,9 @@ body {
 }
 
 .styleContacto{
-    height: 5vh;
     width: 30vw;
+    height: 40px;
+    resize: none;
 }
 
 .styleMapa{
