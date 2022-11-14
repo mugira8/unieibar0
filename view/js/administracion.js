@@ -26,16 +26,19 @@ function getAlumnos(){
 }
 
 function deleteAlumno(id){
-	let url = "controller/cDeleteAlumno.php";
-	let data = {'id': id};
-	fetch(url, {
-		method: 'POST',
-		body: JSON.stringify(data),
-		headers: { 'Content-Type': 'application/json' }
-	}).then(res => res.json()).then(result => {
-		console.log(result);
-		getAlumnos();
-	})
+	if(confirm("Estas seguro de que quieres borrar el usuario?"))
+	{
+		let url = "controller/cDeleteAlumno.php";
+		let data = {'id': id};
+		fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: { 'Content-Type': 'application/json' }
+		}).then(res => res.json()).then(result => {
+			console.log(result);
+			getAlumnos();
+		})
+	}
 }
 
 function updateAlumno(id){
@@ -52,7 +55,6 @@ function updateAlumno(id){
 		$("#editApellido").val(result.apellido);
 		$("#editEmail").val(result.email);
 		$("#editEdad").val(result.edad);
-
 		getAlumnos();
 	})
 }
@@ -119,8 +121,12 @@ $("#botonCrearAlumno").on("click", function() {
 		body: JSON.stringify(data),
 		headers: { 'Content-Type': 'application/json' }
 	}).then (res => res.json()).then(result => {
-		if (result.error == "Success")
+		console.log(result);
+		if (result.error == "Success"){
+			console.log("crear alumno succes")
 			getAlumnos();
+			$("#crearAlumnoModal").modal("hide");
+		}
 	})
 })
 

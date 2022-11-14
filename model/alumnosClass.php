@@ -7,7 +7,7 @@ class alumnosClass
     protected $apellido;
     protected $email;
     protected $edad;
-    protected $curso_ID;
+    protected $usuario_id;
 
     /**
      * Get the value of id
@@ -112,9 +112,9 @@ class alumnosClass
     /**
      * Get the value of usuarioId
      */ 
-    public function getUsuarioId()
+    public function getUsuario_id()
     {
-        return $this->usuario_Id;
+        return $this->usuario_id;
     }
 
     /**
@@ -122,9 +122,9 @@ class alumnosClass
      *
      * @return  self
      */ 
-    public function setUsuarioId($usuario_Id)
+    public function setUsuario_id($usuario_id)
     {
-        $this->usuario_Id = $usuario_Id;
+        $this->usuario_id = $usuario_id;
 
         return $this;
     }
