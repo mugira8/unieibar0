@@ -1,3 +1,8 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .dnone{
     display: none;
 }
@@ -22,7 +27,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/parrallax-eibar.jpg);
+    background-image: url(../images/parallax2.png);
 }
 
 .paraCont {
@@ -58,7 +63,10 @@
 
 
 #footer{
-    background-color: rgb(204, 204, 204);
+    background-color: rgb(223, 187, 242);
+    bottom: 0;
+    text-align: center;
+    margin-top: auto;
 }
 
 #footer #hr{
