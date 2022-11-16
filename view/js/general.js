@@ -5,6 +5,7 @@ function sessionVarsView() {
 		method: 'GET',
 		headers: { 'Content-Type': 'application/json' }
 	}).then(res => res.json()).then(result => {
+		console.log(result);
 		if (result.error == "no error") {
 			$('#loginModalButton').css("display", "none");
 			$("#logoutButton").css("display", "block");
@@ -24,7 +25,7 @@ function sessionVarsView() {
 
 		}
 		if (result.error == "No estas loggeado" &&
-			window.location.href.includes("administracion") && 
+			window.location.href.includes("administracion") || 
 			window.location.href.includes("cursos")) {
 			window.location.href = "index.html";
 		}

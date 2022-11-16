@@ -16,10 +16,8 @@ if(isset($alumno))
     $alumno->setId($id);
     $alumno->setNombre($nombre);
     $alumno->setApellido($apellido);
-    $alumno->setEmail($email);
     $alumno->setEdad($edad);
 }
-
 
 $response = array();
 $response['error'] = $alumno->updateAlumno();
