@@ -195,7 +195,7 @@ public function listAlumnos()
 			return false;
 		}
 
-		$this->CloseConnet();
+		$this->CloseConnect();
 	}
 
 	public function getAlumnoIdWithUsuarioId(){
