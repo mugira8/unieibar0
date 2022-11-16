@@ -57,6 +57,7 @@ class usuariosModel extends usuariosClass {
 
         $email=$this->email;
         $contrasena=$this->contrasena;
+        $usuarioExists = false;
 
         $sql = "SELECT * FROM usuarios WHERE email='$email' AND contrasena='$contrasena'";
 

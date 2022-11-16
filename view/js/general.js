@@ -93,8 +93,16 @@ $("#loginButton").on("click", function () {
 		body: JSON.stringify(data),
 		headers: { 'Content-Type': 'application/json' }
 	}).then(res => res.json()).then(result => {
-		$("#loginModal").modal("hide");
-		sessionVarsView();
+		if(result.error == "no error"){
+			$("#loginModal").modal("hide");
+			sessionVarsView();
+		}
+		if(result.error == "incorrect user"){
+			$("#errorLogin").html("La contraseña y el correo no coinciden");
+		}
+		if(result.error == "insert data"){
+			$("#errorLogin").html("Introduce todos los datos");
+		}
 	})
 })
 

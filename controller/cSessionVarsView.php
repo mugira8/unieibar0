@@ -20,8 +20,10 @@ else
 
 $response['usuario']= $usuario;
 $response['admin'] = $admin;
-$response['newUser'] = $_SESSION['newUser'];
-$response['email'] = $_SESSION['email'];
+if(isset($_SESSION['newUser']))
+    $response['newUser'] = $_SESSION['newUser'];
+if(isset($_SESSION['email']))
+    $response['email'] = $_SESSION['email'];
 
 echo json_encode($response);
 
