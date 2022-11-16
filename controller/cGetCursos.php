@@ -12,12 +12,10 @@
 	$alumno->setUsuario_id($_SESSION['usuario']);
 
 	$alumnoId = $alumno->getAlumnoIdWithUsuarioId();
+	if(isset($alumnoId)){
 	$cursoAlumno->setAlumnoId($alumnoId);
 	$listCursoAlumnos = $cursoAlumno->listCursoAlumnos();
-
 	$listCursos = $cursos->listCursos();
-	//var_dump($listCursoAlumnos);
-	//var_dump($listCursos);
 	foreach($listCursoAlumnos as $item){
 		for ($i = 0; $i < count($listCursos); $i++)
 		{
@@ -25,6 +23,9 @@
 				array_splice($listCursos, $i, 1);
 			}
 		}
+	}
+	} else{
+		$listCursos = $cursos->listCursos();
 	}
 	
 	$response['list'] = $listCursos;

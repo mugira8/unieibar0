@@ -53,4 +53,7 @@ if($_SESSION['admin'] == 1)
 
     $response = array();
     $response['error'] = $alumno->createAlumno();
+
+    echo json_encode($response);
+    unset($alumno);
 }

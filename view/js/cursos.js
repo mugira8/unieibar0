@@ -27,11 +27,11 @@ function getCursos(){
 }
 
 function matricularAlumno(cursoId){
-    if(confirm("Estas seguro de que te quieres matricular? Si quieres desmatricularte tendras que ponerte en contacto con el centro")){
         let check = checkUsuarioAlumno();
 
         check.then(response => {
             if(response == true){
+                if(confirm("Estas seguro de que te quieres matricular? Si quieres desmatricularte tendras que ponerte en contacto con el centro")){
                 let url = "controller/cCrearCursoAlumno.php";
                 let data = {'cursoId': cursoId};
                 fetch(url, {
@@ -42,11 +42,11 @@ function matricularAlumno(cursoId){
                     if (result.error == "no error")
                         getCursos();
                 })
+            }
             } else{
                 $("#crearAlumnoModal").modal('show');
             }
         });
-    }
 }
 
 async function checkUsuarioAlumno()
@@ -72,8 +72,8 @@ $("#botonCrearAlumno").on("click", function() {
 		headers: { 'Content-Type': 'application/json' }
 	}).then (res => res.json()).then(result => {
 		if (result.error == "Success"){
-			getAlumnos();
 			$("#crearAlumnoModal").modal("hide");
+            alert("Ya eres un alumno, elige donde te quieres matricular");
 		}
 	})
 })
